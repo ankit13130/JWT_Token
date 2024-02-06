@@ -22,9 +22,9 @@ public static class ExceptionMiddlewareExtensions
                     {
                         UnauthorizedAccessException => StatusCodes.Status401Unauthorized,
                         ScopeNotFoundException => StatusCodes.Status403Forbidden,
-                        //NotFoundException => StatusCodes.Status404NotFound,
-                        //BadRequestException => StatusCodes.Status400BadRequest,
-                        //RequestFailedException => contextFeature.Error.Message.Contains("409") ? StatusCodes.Status409Conflict : StatusCodes.Status500InternalServerError,
+                        NotFoundException => StatusCodes.Status404NotFound,
+                        BadRequestException => StatusCodes.Status400BadRequest,
+                        RequestFailedException => contextFeature.Error.Message.Contains("409") ? StatusCodes.Status409Conflict : StatusCodes.Status500InternalServerError,
                         _ => StatusCodes.Status500InternalServerError
                     };
                     //logger.LogError($"Something went wrong: {contextFeature.Error}");
